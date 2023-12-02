@@ -14,7 +14,7 @@ def fetch_github_data(output_area):
 
     file_names = [item['name'] for item in req.json()]
 
-    req = requests.get('https://api.github.com/repos/jonathanm-12/ope-quay/branches', auth=('jonathanm-12', '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'))
+    req = requests.get('https://api.github.com/repos/jonathanm-12/ope-quay/branches', auth=auth)
 
     names = [item['name'] for item in req.json()]
     main_branch = requests.get(branch_url, auth=auth).json()[0]['name']
