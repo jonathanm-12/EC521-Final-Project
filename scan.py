@@ -3,7 +3,8 @@ import requests
 
 def fetch_github_data(output_area):
 
-    pat = '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'
+    #private key undisclosed 
+    pat = '' 
     repo_url = 'https://api.github.com/repos/jonathanm-12/ope-quay/contents'
     branch_url = 'https://api.github.com/repos/jonathanm-12/ope-quay/branches'
     auth = ('jonathanm-12', pat)
