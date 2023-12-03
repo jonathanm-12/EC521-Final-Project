@@ -2,6 +2,15 @@ import math
 import string
 import re
 
+api_key_patterns = [
+    r"AIza[0-9A-Za-z\-_]{35}"
+    r"AKIA[0-9A-Z]{16}"
+    r"key-[0-9a-zA-Z]{32}"
+    r"SK[0-9a-fA-F]{32}"
+    r"(sk|rk)_live_[0-9a-zA-Z]{24}"
+    r"xox[bpa]-[0-9A-Za-z]{10,48}"
+]
+
 def calculate_entropy(s):
     """
     Calculate the Shannon entropy of a string.
