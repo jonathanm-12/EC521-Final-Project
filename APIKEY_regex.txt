@@ -14,16 +14,21 @@ Twilio API Key: Starts with SK.
 - SK[0-9a-fA-F]{32}
 
 Square Access Token: Starts with sqOatp- or sq0atp-.
-- sqOatp-[0-9a-zA-Z]{22}|sq0atp-[0-9a-zA-Z]{22}
+- sqOatp-[0-9a-zA-Z]{22}
+- sq0atp-[0-9a-zA-Z]{22}
 
 Stripe API Key: Begins with sk_live_ or rk_live_ for secret keys and pk_live_ for publishable keys.
-- sk_live_[0-9a-zA-Z]{24}|pk_live_[0-9a-zA-Z]{24}
+- sk_live_[0-9a-zA-Z]{24}
+- pk_live_[0-9a-zA-Z]{24}
 
 Slack Token: Begins with xoxb- for bot tokens, xoxp- for user tokens, and xoxa-2 for workspace tokens.
-- xoxb-[0-9A-Za-z]{10,48}|xoxp-[0-9A-Za-z]{10,48}|xoxa-2-[0-9A-Za-z]{10,48}
+- xoxb-[0-9A-Za-z]{10,48}
+- xoxp-[0-9A-Za-z]{10,48}
+- xoxa-2-[0-9A-Za-z]{10,48}
 
 GitHub Token: Usually starts with ghp_ or gho_.
-- ghp_[0-9a-zA-Z]{36}|gho_[0-9a-zA-Z]{36}
+- ghp_[0-9a-zA-Z]{36}
+- gho_[0-9a-zA-Z]{36}
 
 Heroku API Key: A 40-character hexadecimal string.
 - [0-9a-fA-F]{40}
@@ -50,4 +55,6 @@ Atlassian: Begins with BQA.
 - BQA[0-9A-Za-z\\-_]{20,}
 
 Shopify Access Token: Customizable but often includes shpat_, shpca_, or shpss_.
-- shpat_[0-9a-zA-Z]{32}|shpca_[0-9a-zA-Z]{32}|shpss_[0-9a-zA-Z]{32}
+- shpat_[0-9a-zA-Z]{32}
+- shpca_[0-9a-zA-Z]{32}
+- shpss_[0-9a-zA-Z]{32}
