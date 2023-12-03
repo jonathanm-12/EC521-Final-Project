@@ -17,7 +17,7 @@ def calculate_entropy(s):
 
 def is_high_entropy(s, threshold=3.5):
     """
-    Check if a string has high entropy, typically above a certain threshold.
+    Check if a string has high entropy
     """
     return calculate_entropy(s) > threshold
 
