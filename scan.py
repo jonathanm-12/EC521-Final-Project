@@ -1,38 +1,29 @@
 import requests
 
-
-
 #private key undisclosed 
 pat = ''
 repo_url = 'https://api.github.com/repos/jonathanm-12/EC521-Final-Project/contents'
 branch_url = 'https://api.github.com/repos/jonathanm-12/EC521-Final-Project/branches'
 auth = ('jonathanm-12', pat)
 
-#authenticate response request using github key
-req = requests.get(repo_url,auth=auth)
-
-file_names = [item['name'] for item in req.json()]
-
-req = requests.get('https://api.github.com/repos/jonathanm-12/EC521-Final-Project/branches', auth=auth)
-
-names = [item['name'] for item in req.json()]
-main_branch = requests.get(branch_url, auth=auth).json()[0]['name']
-
-#file_content = []
-
-for i in file_names:
-    #append file content
-    #https://raw.githubusercontent.com/jonathanm-12/EC521-Final-Project/main/APIKEY_regex.txt
-    file_content = requests.get(f'https://raw.githubusercontent.com/jonathanm-12/EC521-Final-Project/{main_branch}/{i}', auth=auth)
-    
-    if file_content.status_code != 404:
-        file_content = file_content.content
-    else:
-        continue
-    
-    #output_area.insert('end', file_content)
-    #output_area.insert('end', '\n')
-    
-    print(file_content)
+def fetch_contents(url):
+    response = requests.get(url, auth=auth)
+    return response.json()
 
 
+def print_raw_file_url(user, repo, branch, path):
+    raw_url = f"https://raw.githubusercontent.com/{user}/{repo}/{branch}/{path}"
+    print(f"Raw URL of {path}: {raw_url}")
+    print(requests.get(raw_url, auth=auth).text)
+
+def list_files_in_repo(user, repo, branch='main', path=""):
+    api_url = f"https://api.github.com/repos/{user}/{repo}/contents/{path}"
+    contents = fetch_contents(api_url)
+
+    for content in contents:
+        if content['type'] == 'file':
+            print_raw_file_url(user, repo, branch, content['path'])
+        elif content['type'] == 'dir':
+            list_files_in_repo(user, repo, branch, content['path'])
+
+list_files_in_repo('jonathanm-12', 'brain-4ce')
