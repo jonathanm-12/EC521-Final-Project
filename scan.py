@@ -3,7 +3,7 @@ import requests
 
 
 #private key undisclosed 
-pat = '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'
+pat = ''
 repo_url = 'https://api.github.com/repos/jonathanm-12/EC521-Final-Project/contents'
 branch_url = 'https://api.github.com/repos/jonathanm-12/EC521-Final-Project/branches'
 auth = ('jonathanm-12', pat)
