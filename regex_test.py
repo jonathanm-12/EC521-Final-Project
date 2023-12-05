@@ -20,14 +20,14 @@ regex_patterns = {
     "Shopify Access Token": ["shpat_[0-9a-zA-Z]{32}", "shpca_[0-9a-zA-Z]{32}", "shpss_[0-9a-zA-Z]{32}"]
 }
 
-def search_file_for_patterns(file_path, patterns):
+def search_file_for_patterns(file_path):
     # Read the contents of the file
     with open(file_path, 'r') as file:
         file_contents = file.read()
 
     # Search for patterns in the file contents
     matches = {}
-    for key, pattern in patterns.items():
+    for key, pattern in regex_patterns.items():
         if isinstance(pattern, list):
             for p in pattern:
                 found = re.findall(p, file_contents)
@@ -43,7 +43,6 @@ def search_file_for_patterns(file_path, patterns):
 # Testing
 if __name__ == "__main__":
     file_path = "test_cases\codes.txt"
-    patterns = regex_patterns
-    results = search_file_for_patterns(file_path, patterns)
+    results = search_file_for_patterns(file_path)
     for name,key in results.items():
         print(f"{name}: {key}")
