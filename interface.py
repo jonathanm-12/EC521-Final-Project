@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import random
+from scan import fetch_repos
 
 # Function to simulate scanning and generate fake results
 def scan():
